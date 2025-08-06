@@ -1,0 +1,271 @@
+/* Общие стили */
+:root {
+    --bg-color: #F5F5DC;
+    --primary: #D2B48C;
+    --primary-dark: #B08E6B;
+    --text: #333333;
+    --text-light: #5A5A5A;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Georgia', 'Noto Sans JP', serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-dark);
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--text);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Шапка */
+header {
+    padding: 30px 0;
+    border-bottom: 1px solid rgba(210, 180, 140, 0.3);
+    position: relative;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--primary-dark);
+    letter-spacing: 1px;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--primary-dark);
+    cursor: pointer;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    font-size: 16px;
+}
+
+/* Главный баннер */
+.hero {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+    color: var(--primary-dark);
+}
+
+.hero p {
+    font-size: 18px;
+    color: var(--text-light);
+    max-width: 700px;
+    margin: 0 auto 30px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--primary);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(210, 180, 140, 0.4);
+}
+
+/* Список статей */
+.articles {
+    padding: 60px 0;
+}
+
+.articles h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 32px;
+    color: var(--primary-dark);
+}
+
+.article-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.article-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.article-img {
+    height: 200px;
+    background-color: #eee;
+    background-size: cover;
+    background-position: center;
+}
+
+.article-content {
+    padding: 25px;
+}
+
+.article-meta {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.article-tag {
+    display: inline-block;
+    background-color: var(--primary);
+    color: white;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.article-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.article-card h3 a {
+    color: var(--text);
+}
+
+.article-card h3 a:hover {
+    color: var(--primary-dark);
+}
+
+.article-card p {
+    color: var(--text-light);
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.read-more {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Подвал */
+footer {
+    text-align: center;
+    padding: 30px 0;
+    border-top: 1px solid rgba(210, 180, 140, 0.3);
+    color: var(--text-light);
+    font-size: 14px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .header-content {
+        flex-wrap: wrap;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .main-nav {
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .main-nav.active {
+        max-height: 300px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding: 20px 0;
+    }
+
+    nav ul li {
+        margin: 10px 0 0 0;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .article-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 40px 0;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .btn {
+        padding: 10px 25px;
+    }
+
+    .articles {
+        padding: 40px 0;
+    }
+
+    .articles h2 {
+        font-size: 26px;
+    }
+}
