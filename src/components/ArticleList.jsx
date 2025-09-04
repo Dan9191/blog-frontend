@@ -9,11 +9,13 @@ function ArticleList({ searchTag }) {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 
+    const apiBaseUrl = process.env.REACT_APP_API_BASE_URL || 'http://localhost:8093';
+
     useEffect(() => {
         setLoading(true);
         const url = searchTag
-            ? `http://localhost:8093/api/articles/filter?tags=${encodeURIComponent(searchTag)}`
-            : `http://localhost:8093/api/articles?page=${page}&size=5&sort=createdAt,desc`;
+            ? `${apiBaseUrl}/v1/articles/filter?tags=${encodeURIComponent(searchTag)}`
+            : `${apiBaseUrl}/v1/articles?page=${page}&size=5&sort=createdAt,desc`;
         console.log(url)
 
         fetch(url)

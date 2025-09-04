@@ -5,8 +5,10 @@ function ArticlePage() {
     const {id} = useParams();
     const [article, setArticle] = useState(null);
 
+    const apiBaseUrl = process.env.REACT_APP_API_BASE_URL || 'http://localhost:8093';
+
     useEffect(() => {
-        fetch(`http://localhost:8093/api/articles/${id}`)
+        fetch(`${apiBaseUrl}/v1/articles/${id}`)
             .then((response) => response.json())
             .then((data) => setArticle(data))
             .catch((error) => console.error('Ошибка:', error));
